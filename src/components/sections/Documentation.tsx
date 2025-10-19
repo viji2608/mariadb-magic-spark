@@ -31,7 +31,7 @@ const docCards = [
     icon: FileText,
     title: "Examples & Tutorials",
     description: "Practical examples and step-by-step tutorials for common tasks",
-    link: "https://www.youtube.com/results?search_query=jupyter+notebook+tutorial",
+    link: "https://www.mariadbtutorial.com/",
     color: "text-primary",
     bgColor: "bg-primary/10",
   },
