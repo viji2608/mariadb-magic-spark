@@ -9,7 +9,10 @@ export function Navbar() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const nav = document.querySelector('nav');
+      const offset = nav ? (nav as HTMLElement).offsetHeight : 64;
+      const y = element.getBoundingClientRect().top + window.scrollY - offset - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
       setMobileMenuOpen(false);
     }
   };
