@@ -34,6 +34,9 @@ export function Navbar() {
             <button onClick={() => scrollToSection("installation")} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Installation
             </button>
+            <button onClick={() => scrollToSection("docs")} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Docs
+            </button>
             <button onClick={() => scrollToSection("roadmap")} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Roadmap
             </button>
@@ -41,10 +44,6 @@ export function Navbar() {
 
           {/* Right Side Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm" onClick={() => window.open("https://docs.mariadb.com", "_blank")}>
-              <BookOpen className="h-4 w-4 mr-2" />
-              Docs
-            </Button>
             <Button variant="outline" size="sm" onClick={() => window.open("https://github.com", "_blank")}>
               <Github className="h-4 w-4 mr-2" />
               GitHub
@@ -75,13 +74,12 @@ export function Navbar() {
               <button onClick={() => scrollToSection("installation")} className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Installation
               </button>
+              <button onClick={() => scrollToSection("docs")} className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Docs
+              </button>
               <button onClick={() => scrollToSection("roadmap")} className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Roadmap
               </button>
-              <Button variant="ghost" size="sm" className="justify-start" onClick={() => window.open("https://docs.mariadb.com", "_blank")}>
-                <BookOpen className="h-4 w-4 mr-2" />
-                Docs
-              </Button>
               <Button variant="outline" size="sm" className="justify-start" onClick={() => window.open("https://github.com", "_blank")}>
                 <Github className="h-4 w-4 mr-2" />
                 GitHub

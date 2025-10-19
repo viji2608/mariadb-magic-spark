@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Github, BookOpen, Rocket } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 export function Hero() {
   const scrollToInstallation = () => {
@@ -12,20 +11,14 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Hero background" 
-          className="w-full h-full object-cover opacity-20 dark:opacity-10"
-        />
-        <div className="absolute inset-0 bg-gradient-hero" />
-      </div>
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-hero z-0" />
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-secondary/15 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }} />
       </div>
 
       {/* Content */}
