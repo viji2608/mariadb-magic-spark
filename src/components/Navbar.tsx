@@ -1,10 +1,22 @@
-import { Database, Github, BookOpen, Menu, X } from "lucide-react";
+import { Database, Github, BookOpen, Menu, X, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    toast.success('Signed out successfully');
+    navigate('/');
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -52,6 +64,17 @@ export function Navbar() {
               GitHub
             </Button>
             <ThemeToggle />
+            {user ? (
+              <Button onClick={handleSignOut} variant="ghost" size="sm">
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            ) : (
+              <Button onClick={() => navigate('/auth')} variant="default" size="sm">
+                <LogIn className="w-4 h-4 mr-2" />
+                Sign In
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,6 +110,17 @@ export function Navbar() {
                 <Github className="h-4 w-4 mr-2" />
                 GitHub
               </Button>
+              {user ? (
+                <Button onClick={handleSignOut} variant="ghost" size="sm" className="justify-start">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              ) : (
+                <Button onClick={() => navigate('/auth')} variant="default" size="sm" className="justify-start">
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Sign In
+                </Button>
+              )}
             </div>
           </div>
         )}
